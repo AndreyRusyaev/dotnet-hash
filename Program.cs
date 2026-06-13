@@ -79,7 +79,8 @@ void GenerateHashForFile(HashAlgorithm hashAlg, string filePath)
 {
     if (!File.Exists(filePath))
     {
-        throw new FileNotFoundException(filePath);
+        Console.Error.WriteLine($"[ERR] File not found: {filePath}");
+        return;
     }
 
     var fileName = Path.GetFileName(filePath);
@@ -91,7 +92,7 @@ void GenerateHashForFile(HashAlgorithm hashAlg, string filePath)
         var hash = hashAlg.ComputeHash(file);
         Console.WriteLine($"{Hex(hash)}: {fileName}");
     }
-    catch(IOException ex)
+    catch(Exception ex)
     {
         Console.Error.WriteLine($"[ERR] {ex.Message}: {fileName}");
     }
