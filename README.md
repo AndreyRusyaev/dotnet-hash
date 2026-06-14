@@ -78,45 +78,61 @@ Commands:
 # Examples
 
 ```shell
-dotnet run sha2 .
+dotnet run
 ```
 
 Output:
 ``` shell
-d0dc7f3a032885de8a4cc242dfa979eb79bdfb850ff522a65ee88f21cac1cd86: dotnet-hash.csproj
-92fef3e5440f55034af30dcc85ea7f4d8963e41712a080f05c28404a3080ba9c: Program.cs
-12592396e17eebb5ec800232b10e88a9f1845269f0123dccbc3cd36cf63a880e: README.md
+# Sha2_256 C:\Git\dotnet-hash
+13c01fc8694cc1cdd8d70e2fbecab7b6a6988335809916d0c13027f15a6377be # .gitignore
+5483000df0d76a3e3536ab2841e95028db3879ad228194074d756ebdadb82dcb # dotnet-hash.csproj
+928138a3864ce3f4ec0d3649093f3f04e657ac2dbcae4bc1e18244023f6020aa # Program.cs
+62324a70ef27efe0345c385740f5c9888ecb71b86437744987d296eda8fc6667 # README.md
+```
+
+```shell
+dotnet run -- sha2
+```
+
+Output:
+``` shell
+# Sha2_256 C:\Git\dotnet-hash
+13c01fc8694cc1cdd8d70e2fbecab7b6a6988335809916d0c13027f15a6377be # .gitignore
+5483000df0d76a3e3536ab2841e95028db3879ad228194074d756ebdadb82dcb # dotnet-hash.csproj
+928138a3864ce3f4ec0d3649093f3f04e657ac2dbcae4bc1e18244023f6020aa # Program.cs
+d9e0c9d6990070bcb86f74a1bb2728185ed739bb4be13f32fe7ebf23da2f08f3 # README.md
 ```
 
 OR
 
 ```shell
-dotnet run md5 "C:\Windows\System32\notepad.exe"
+dotnet run -- md5 "C:\Windows\System32\notepad.exe"
 ```
 
 Output:
 ``` shell
-017b54a1f42119891b0a8439989cebc2: notepad.exe
+# MD5 C:\Windows\System32\notepad.exe
+017b54a1f42119891b0a8439989cebc2 # notepad.exe, size: 360448 bytes, version: 10.0.26100.8457 (WinBuild.160101.0800)
 ```
 
 OR
 
 ```shell
-dotnet run sha3_256 "C:\Windows\System32\*.exe" > hashes.sha256
+dotnet run -- sha3_256 "C:\Windows\System32\*.exe" > hashes_system32_exe.sha3_256
 ```
 
 Output:
 ``` shell
-hashes.sha3
+hashes.sha3_256
 ```
 
 OR
 
 ```shell
-dotnet run sha2 "C:\Windows\System32" > hashes.sha256
+dotnet run -- sha2 "C:\Windows\System32" > hashes_system32.sha2_256
 ```
 
 Output:
 ``` shell
-hashes.txt
+hashes.sha2_256
 ```
