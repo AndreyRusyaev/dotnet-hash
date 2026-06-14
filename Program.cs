@@ -18,6 +18,8 @@ var rootCommand = new RootCommand(
     CreateHashCommand("keccak256", ["keccak"], "KECCAK-256", new acryptohashnet.Keccak256()),
     CreateHashCommand("keccak512", [], "KECCAK-512", new acryptohashnet.Keccak512())
 };
+
+rootCommand.Arguments.Add(new Argument<string>("path") { DefaultValueFactory = _ => Directory.GetCurrentDirectory() });
 rootCommand.SetAction(parseResult =>
 {
     GenerateHash(new acryptohashnet.Sha2_256(), parseResult.GetValue<string>("path") ?? Directory.GetCurrentDirectory());

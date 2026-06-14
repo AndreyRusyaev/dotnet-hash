@@ -1,5 +1,5 @@
 # dotnet-hash
-Simple C#/.Net implementation to generate cryptographic hashes for files and directories:
+Console tool to generate cryptographic hashes for files and directories:
 
 ## How to run it
 
@@ -12,20 +12,61 @@ Clone repository and run `md5` or `sha2` or `sha3` command:
 ``` shell
 git clone https://github.com/AndreyRusyaev/dotnet-hash
 cd dotnet-hash
-dotnet run sha3 *.cs
+dotnet run
 ```
 
 Output:
 ```shell
-afcd67433f3d2d0b4c00b46ecd9deb09d867dae7165629297fd73e5803c44b0f: Program.cs
+# Sha2_256 C:\Git\dotnet-hash
+13c01fc8694cc1cdd8d70e2fbecab7b6a6988335809916d0c13027f15a6377be # .gitignore, size: 6352 bytes
+5483000df0d76a3e3536ab2841e95028db3879ad228194074d756ebdadb82dcb # dotnet-hash.csproj, size: 791 bytes
+360ee17b27d23c0bb37b0c41a8b4c686963473e9e97288e663c5414048cfbe10 # Program.cs, size: 4518 bytes
+8b35b6e20520ca42f16f3dfaea8f7484d2c67f6523d82e0660f0def12c747d09 # README.md, size: 3315 bytes
+```
+
+OR 
+
+``` shell
+dotnet run -- *.cs
+```
+
+Output:
+```shell
+# Sha2_256 *.cs
+360ee17b27d23c0bb37b0c41a8b4c686963473e9e97288e663c5414048cfbe10 # Program.cs, size: 4518 bytes
+```
+
+``` shell
+dotnet run -- -?
+```
+
+```
+  <path>  [default: C:\Git\dotnet-hash]
+
+Options:
+  -?, -h, --help  Show help and usage information
+  --version       Show version information
+
+Commands:
+  md4 <path>                     MD4 hash. [default: C:\Git\dotnet-hash]
+  md5 <path>                     MD5 hash. [default: C:\Git\dotnet-hash]
+  sha, sha1 <path>               SHA1 hash. [default: C:\Git\dotnet-hash]
+  sha2, sha256, sha2_256 <path>  SHA2-256 hash. [default: C:\Git\dotnet-hash]
+  sha2_512, sha512 <path>        SHA2-512 hash. [default: C:\Git\dotnet-hash]
+  sha3, sha3_256 <path>          SHA3-256 hash. [default: C:\Git\dotnet-hash]
+  sha3_512 <path>                SHA3-512 hash. [default: C:\Git\dotnet-hash]
+  keccak, keccak256 <path>       KECCAK-256 hash. [default: C:\Git\dotnet-hash]
+  keccak512 <path>               KECCAK-512 hash. [default: C:\Git\dotnet-hash]
 ```
 
 ## List of supported algorithms
 
-* MD4
-* MD5
+* MD4 (64 bits)
+* MD5 (64 bits)
+* SHA1 (256 bits)
 * SHA2 (256, 512 bits)
 * SHA3 (256, 512 bits)
+* KECCAK (256, 512 bits)
 
 # Prerequisites
 .Net 10.0 or higher.
