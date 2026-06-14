@@ -1,5 +1,5 @@
 # dotnet-hash
-Console tool to generate cryptographic hashes for files and directories:
+Console .Net tool to generate cryptographic hashes for files and directories (glob patterns supported):
 
 ## How to run it
 

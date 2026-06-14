@@ -8,6 +8,18 @@
     
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>dotnet-hash</ToolCommandName>
+    
+    <Version>1.0.0</Version>
+    <Description>Console .Net tool to generate cryptographic hashes for files and directories (glob patterns supported).</Description>
+    <Copyright>Andrey Rusyaev</Copyright>
+    <Authors>Andrey Rusyaev</Authors>
+    <RepositoryUrl>https://github.com/AndreyRusyaev/dotnet-hash</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <PackageTags>cryptography cryptohash hash digest integrity md4 md5 sha1 sha2 sha3 keccak</PackageTags>
+    <PackageLicenseFile>lgpl1.0.txt</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageProjectUrl>https://github.com/AndreyRusyaev/dotnet-hash</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageOutputPath>./nupkg</PackageOutputPath>
   </PropertyGroup>
 
@@ -22,6 +34,11 @@
     <Using Include="System.CommandLine" />
     <Using Include="Microsoft.Extensions.FileSystemGlobbing" />
     <Using Include="Microsoft.Extensions.FileSystemGlobbing.Abstractions" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="" />
+    <None Include="lgpl1.0.txt" Pack="true" PackagePath="" />
   </ItemGroup>
 
 </Project>
